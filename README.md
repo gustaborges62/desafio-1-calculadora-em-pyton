@@ -1,11 +1,105 @@
-<div align="center">
+# ✨ AeroCalc 2000 · Calculadora Frutiger Aero em Python
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Uma aplicação desktop desenvolvida exclusivamente em **Python puro**, unindo a estética nostálgica **Frutiger Aero** dos anos 2000 à arquitetura de software profissional: desacoplamento de responsabilidades, cobertura de **testes de precisão automatizados (`unittest`)** e script para compilação em **executável (`.exe`) independente** para Windows.
 
-  <h1>Built with AI Studio</h2>
+---
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## 🎨 Design Frutiger Aero dos Anos 2000
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+- **Botões Glossy Gel:** Renderizados no `tk.Canvas` com geometria convexa, chanfros e calota elíptica superior de reflexo especular de luz.
+- **Glassmorphism:** Moldura em degradê azul-marinho translúcido com bordas biseladas.
+- **Visor LCD Rebaixado:** Display com alto contraste, fundo esmeralda profundo e caracteres em ciano luminescente.
+- **Controle por Teclado:** Digitação natural com as teclas físicas `0-9`, `+`, `-`, `*`, `/`, `Enter`, `Backspace` e `Esc`.
 
-</div>
+---
+
+## 📂 Arquitetura dos Arquivos
+
+```text
+meu_projeto/
+├── calculator_core.py   # Lógica matemática pura e regras de precisão decimal
+├── test_calculator.py   # Suite de testes unitários automatizados (unittest)
+├── main.py              # Interface gráfica Frutiger Aero em Tkinter puro
+├── build_exe.bat        # Script automatizado para compilar em .EXE
+└── README.md            # Documentação completa do projeto
+```
+
+---
+
+## 🚀 Como Executar o Projeto
+
+### Pré-requisitos
+- **Python 3.8 ou superior** instalado.
+- Como o projeto usa apenas módulos padrão (`tkinter`, `unittest`, `decimal`, `math`), **não é necessário instalar nenhuma biblioteca adicional via pip**.
+
+### Executar a Calculadora
+```bash
+# No Windows
+python main.py
+
+# No macOS ou Linux
+python3 main.py
+```
+
+---
+
+## 🧪 Como Rodar os Testes de Precisão (Unit Tests)
+
+O projeto inclui 15 testes automatizados que cobrem as 4 operações básicas e casos críticos (como divisão por zero e precisão de números de ponto flutuante):
+
+```bash
+# Executar todos os testes com relatório verboso
+python -m unittest test_calculator.py -v
+```
+
+Exemplo de saída esperada:
+```text
+test_adicao_com_negativos (test_calculator.TestCalculadoraPrecisao) ... ok
+test_adicao_numeros_inteiros (test_calculator.TestCalculadoraPrecisao) ... ok
+test_adicao_precisao_decimal_flutuante (test_calculator.TestCalculadoraPrecisao) ... ok
+test_despacho_calcular_operacao (test_calculator.TestCalculadoraPrecisao) ... ok
+test_divisao_critica_por_zero (test_calculator.TestCalculadoraPrecisao) ... ok
+test_divisao_dizima_periodica (test_calculator.TestCalculadoraPrecisao) ... ok
+test_divisao_exata (test_calculator.TestCalculadoraPrecisao) ... ok
+test_formatacao_numero_limpeza_de_zeros (test_calculator.TestCalculadoraPrecisao) ... ok
+test_multiplicacao_com_decimais (test_calculator.TestCalculadoraPrecisao) ... ok
+test_multiplicacao_por_zero (test_calculator.TestCalculadoraPrecisao) ... ok
+test_multiplicacao_regra_de_sinais (test_calculator.TestCalculadoraPrecisao) ... ok
+test_operador_invalido_lanca_excecao (test_calculator.TestCalculadoraPrecisao) ... ok
+test_subtracao_anulacao (test_calculator.TestCalculadoraPrecisao) ... ok
+test_subtracao_com_negativos (test_calculator.TestCalculadoraPrecisao) ... ok
+test_subtracao_padrao (test_calculator.TestCalculadoraPrecisao) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.003s
+
+OK
+```
+
+---
+
+## 📦 Como Gerar o Executável (.EXE) para Windows
+
+Para distribuir a calculadora como um aplicativo autônomo que roda com dois cliques em qualquer computador Windows (sem necessidade de ter Python instalado):
+
+### Método Rápido (1 Clique)
+Execute o arquivo `build_exe.bat`. Ele instala o PyInstaller, valida os testes e cria o arquivo `.exe`.
+
+### Método Manual
+```bash
+# 1. Instalar o PyInstaller
+pip install pyinstaller
+
+# 2. Compilar em arquivo único sem tela preta de terminal
+pyinstaller --onefile --noconsole --name "AeroCalc2000" main.py
+```
+
+O executável final estará pronto em:
+```text
+dist/AeroCalc2000.exe
+```
+
+---
+
+## 📄 Licença
+Distribuído sob a licença **MIT**.
